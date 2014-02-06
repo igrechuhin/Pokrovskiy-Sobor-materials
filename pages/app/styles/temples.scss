@@ -1,0 +1,513 @@
+@import "base";
+
+$plan-level1: sprite-map("plans/level1_small/*.png", $layout: smart);
+$plan-level2: sprite-map("plans/level2_small/*.png", $layout: smart);
+
+.button {
+    &.panorama {
+        @include flex-sprite($buttons, button_360, true);
+    }
+    &.plan {
+        @include flex-sprite($buttons, button_plan, true);
+    }
+    &.contents {
+        @include flex-sprite($buttons, button_contents, true);
+    }
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+}
+
+#images {
+    left: 104px;
+    top: 240px;
+
+    height: 654px;
+    width: 654px;
+
+    &.vasilii {
+        @include background-image(image-url("temples/Vasiliya_Blajennogo_kupol.png"));
+    }
+
+    &.svirski {
+        @include background-image(image-url("temples/Svirskogo_kupol.png"));
+    }
+
+    &.varlaam {
+        @include background-image(image-url("temples/Hutynskogo_kupol.png"));
+    }
+
+    &.jerusalem {
+        @include background-image(image-url("temples/Vhoda_Gospodnya_kupol.png"));
+    }
+
+    &.grigory {
+        @include background-image(image-url("temples/Grigoriya_Armyanskogo_kupol.png"));
+    }
+
+    &.kipriana {
+        @include background-image(image-url("temples/Kipriana_i_Ustiny_kupol.png"));
+    }
+
+    &.nikola {
+        @include background-image(image-url("temples/Nikoly_Velikoreckogo_kupol.png"));
+    }
+
+    &.pokrova {
+        @include background-image(image-url("temples/Pokrova_kupol.png"));
+    }
+
+    &.troitsa {
+        @include background-image(image-url("temples/Sv_Troicy_kupol.png"));
+    }
+
+    &.patriarhi {
+        @include background-image(image-url("temples/Treh_Patriarhov_kupol.png"));
+    }
+}
+
+#points {
+    left: 853px;
+    top: 240px;
+
+    .plan {
+        @include flex-sprite($plan-level2, plan_level2);
+    }
+
+    &.vasilii {
+        top: 268px;
+
+        .plan {
+            @include flex-sprite($plan-level1, plan_level1);
+        }
+        .temple {
+            left: 44px;
+            top: 323px;
+            @include flex-sprite($plan-level1, church_vasilii);
+        }
+    }
+
+    &.svirski {
+        .temple {
+            left: 93px;
+            top: 177px;
+            @include flex-sprite($plan-level2, svirski);
+        }
+    }
+
+    &.varlaam {
+        .temple {
+            left: 293px;
+            top: 169px;
+            @include flex-sprite($plan-level2, varlaam);
+        }
+    }
+
+    &.jerusalem {
+        .temple {
+            left: 374px;
+            top: 264px;
+            @include flex-sprite($plan-level2, jerusalem);
+        }
+    }
+
+    &.grigory {
+        .temple {
+            left: 298px;
+            top: 365px;
+            @include flex-sprite($plan-level2, grigory);
+        }
+    }
+
+    &.kipriana {
+        .temple {
+            left: 179px;
+            top: 436px;
+            @include flex-sprite($plan-level2, kipriana);
+        }
+    }
+
+    &.nikola {
+        .temple {
+            left: 177px;
+            top: 95px;
+            @include flex-sprite($plan-level2, nikola);
+        }
+    }
+
+    &.pokrova {
+        .temple {
+            left: 136px;
+            top: 225px;
+            @include flex-sprite($plan-level2, pokrova);
+        }
+    }
+
+    &.troitsa {
+        .temple {
+            left: 12px;
+            top: 263px;
+            @include flex-sprite($plan-level2, troitsa);
+        }
+    }
+
+    &.patriarhi {
+        .temple {
+            left: 93px;
+            top: 371px;
+            @include flex-sprite($plan-level2, patriarhi);
+        }
+    }
+}
+
+.player {
+    left: 840px;
+    top: 890px;
+
+    width: 610px;
+    height: 80px;
+
+    .play-pause {
+        left: 0px;
+        top: 16px;
+
+        @include flex-sprite($buttons, button_play);
+        &.active {
+            @include flex-sprite($buttons, button_pause);
+        }
+    }
+
+    .slider {
+        left: 54px;
+        top: 26px;
+
+        width: 520px;
+        height: 17px;
+
+        .ui-slider-handle {
+            margin-left: -23px;
+            margin-top: -15px;
+        }
+
+        .value {
+            top: 33px;
+        }
+
+        .min {
+            left: -18px;
+        }
+        .max {
+            right: -23px;
+        }
+
+    }
+}
+
+.text {
+    left: 104px;
+    top: 1031px;
+
+    width: 1328px;
+    height: 938px;
+
+    font-family: 'PT Serif Regular';
+
+    font-size: 32px;
+    line-height: 46px;
+}
+
+.info {
+    display: none;
+
+    left: 0px;
+    top: 240px;
+
+    width: 1536px;
+    height: 1808px;
+
+    background-color: $color-light-gray;
+
+    .background {
+        width: 1536px;
+        height: 1808px;
+    }
+
+    #image {
+        display: none;
+
+        width: 1536px;
+        height: 1620px;
+
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: 50%;
+
+        &.p1 { @include background-image(image-url("audio/1.jpg")); }
+        &.p2 { @include background-image(image-url("audio/2.jpg")); }
+        &.p3 { @include background-image(image-url("audio/3.jpg")); }
+        &.p15 { @include background-image(image-url("audio/15.jpg")); }
+        &.p16 { @include background-image(image-url("audio/16.jpg")); }
+        &.p17 { @include background-image(image-url("audio/17.jpg")); }
+        &.p18 { @include background-image(image-url("audio/18.jpg")); }
+        &.p19 { @include background-image(image-url("audio/19.jpg")); }
+        &.p20 { @include background-image(image-url("audio/20.jpg")); }
+        &.p21 { @include background-image(image-url("audio/21.jpg")); }
+        &.p22 { @include background-image(image-url("audio/22.jpg")); }
+        &.p23 { @include background-image(image-url("audio/23.jpg")); }
+        &.p24 { @include background-image(image-url("audio/24.jpg")); }
+        &.p25 { @include background-image(image-url("audio/25.jpg")); }
+        &.p26 { @include background-image(image-url("audio/26.jpg")); }
+        &.p27 { @include background-image(image-url("audio/27.jpg")); }
+        &.p28 { @include background-image(image-url("audio/28.jpg")); }
+
+
+    }
+
+    .panorama {
+        @include flex-sprite($buttons, button_360_black);
+    }
+
+    .audio {
+        @include flex-sprite($buttons, button_audio_black);
+    }
+
+    &.vasilii {
+        .background {
+            @include background-image(image-url("plans/detailed/vasilii.png"));
+        }
+        .panorama {
+            left: 927px;
+            top: 810px;
+        }
+        .audio {
+            &#p1 {
+                left: 1010px;
+                top: 810px;
+            }
+            &#p2 {
+                left: 1067px;
+                top: 1036px;
+            }
+            &#p3 {
+                left: 954px;
+                top: 620px;
+            }
+        }
+    }
+
+    &.svirski {
+        .background {
+            @include background-image(image-url("plans/detailed/svirski.png"));
+        }
+        .panorama {
+            left: 863px;
+            top: 718px;
+        }
+        .audio {
+            &#p15 {
+                left: 730px;
+                top: 718px;
+            }
+        }
+    }
+
+    &.varlaam {
+        .background {
+            @include background-image(image-url("plans/detailed/varlaam.png"));
+        }
+        .panorama {
+            left: 850px;
+            top: 684px;
+        }
+        .audio {
+            &#p16 {
+                left: 682px;
+                top: 712px;
+            }
+            &#p17 {
+                left: 600px;
+                top: 604px;
+            }
+            &#p18 {
+                left: 830px;
+                top: 570px;
+            }
+        }
+    }
+
+    &.jerusalem {
+        .background {
+            @include background-image(image-url("plans/detailed/jerusalem.png"));
+        }
+        .panorama {
+            left: 980px;
+            top: 708px;
+        }
+        .audio {
+            &#p19 {
+                left: 880px;
+                top: 708px;
+            }
+            &#p20 {
+                left: 1010px;
+                top: 545px;
+            }
+        }
+    }
+
+    &.grigory {
+        .background {
+            @include background-image(image-url("plans/detailed/grigory.png"));
+        }
+        .panorama {
+            left: 787px;
+            top: 973px;
+        }
+        .audio {
+            &#p25 {
+                left: 680px;
+                top: 843px;
+            }
+            &#p26 {
+                left: 815px;
+                top: 773px;
+            }
+        }
+    }
+
+    &.kipriana {
+        .background {
+            @include background-image(image-url("plans/detailed/kipriana.png"));
+        }
+        .panorama {
+            left: 835px;
+            top: 835px;
+        }
+        .audio {
+            &#p23 {
+                left: 709px;
+                top: 899px;
+            }
+        }
+    }
+
+    &.nikola {
+        .background {
+            @include background-image(image-url("plans/detailed/nikola.png"));
+        }
+        .panorama {
+            left: 983px;
+            top: 633px;
+        }
+        .audio {
+            &#p21 {
+                left: 816px;
+                top: 633px;
+            }
+        }
+    }
+
+    &.pokrova {
+        .background {
+            @include background-image(image-url("plans/detailed/pokrova.png"));
+        }
+        .panorama {
+            left: 867px;
+            top: 712px;
+        }
+        .audio {
+            &#p27 {
+                left: 980px;
+                top: 712px;
+            }
+            &#p28 {
+                left: 800px;
+                top: 830px;
+            }
+        }
+    }
+
+    &.troitsa {
+        .background {
+            @include background-image(image-url("plans/detailed/troitsa.png"));
+        }
+        .panorama {
+            left: 780px;
+            top: 775px;
+        }
+        .audio {
+            &#p22 {
+                left: 650px;
+                top: 775px;
+            }
+        }
+    }
+
+    &.patriarhi {
+        .background {
+            @include background-image(image-url("plans/detailed/patriarhi.png"));
+        }
+        .panorama {
+            left: 854px;
+            top: 820px;
+        }
+        .audio {
+            &#p24 {
+                left: 723px;
+                top: 787px;
+            }
+        }
+    }
+
+    .player {
+        display: none;
+
+        left: 0px;
+        top: 1620px;
+
+        width: 1536px;
+        height: 188px;
+
+        .player-content-gray {
+            left: 0px;
+            top: 0px;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: -1;
+
+            background-color: $color-light-gray;
+            opacity: 0.6;
+        }
+
+        .play-pause {
+            left: 70px;
+            top: 77px;
+        }
+
+        .slider {
+            left: 150px;
+            top: 77px;
+
+            width: 1290px;
+            height: 36px;
+
+            .ui-slider-handle {
+                margin-left: -22px;
+                margin-top: -5px;
+            }
+
+            .value {
+                top: 46px;
+            }
+
+            .min {
+                left: 0px;
+            }
+            .max {
+                right: 0px;
+            }
+        }
+    }
+}

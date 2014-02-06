@@ -1,0 +1,483 @@
+@import "base";
+
+$plan-level1: sprite-map("plans/level1/*.png", $layout: smart);
+$plan-level2: sprite-map("plans/level2/*.png", $layout: smart);
+
+.button {
+    &.model {
+        @include flex-sprite($buttons, button_3d, true);
+    }
+    &.plan {
+        @include flex-sprite($buttons, button_plan_active);
+    }
+    &.contents {
+        @include flex-sprite($buttons, button_contents, true);
+    }
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+}
+
+.bonus-hint {
+    display: none;
+}
+
+@for $i from 1 through 2 {
+    .navigation {
+        #level#{$i} {
+            left: 721px + ($i - 1)*65px;
+        }
+    }
+}
+
+#level1 {
+    .church-plan {
+        left: 192px;
+        top: 360px;
+
+        @include flex-sprite($plan-level1, plan_level1);
+    }
+
+    div.church-vasilii {
+        left: 275px;
+        top: 975px;
+
+        @include flex-sprite($plan-level1, church_vasilii);
+
+        .info {
+            left: 68px;
+        }
+
+        .panorama {
+            left: 246px;
+        }
+    }
+
+    div.north-porklet {
+        left: 663px;
+        top: 1015px;
+
+        @include flex-sprite($plan-level1, north_porklet);
+
+        .panorama {
+            left: 246px;
+        }
+    }
+
+    div.north-underchurch {
+        left: 691px;
+        top: 1125px;
+
+        @include flex-sprite($plan-level1, north_underchurch);
+
+        .panorama {
+            left: 155px;
+        }
+    }
+
+    div.east-gallery {
+        left: 544px;
+        top: 776px;
+
+        @include flex-sprite($plan-level1, east_gallery);
+
+        .panorama {
+            left: 67px;
+        }
+    }
+
+    div.east-underchurch {
+        left: 392px;
+        top: 810px;
+
+        @include flex-sprite($plan-level1, east_underchurch);
+
+        .panorama {
+            left: 121px;
+        }
+    }
+
+    div.archeology {
+        left: 611px;
+        top: 772px;
+
+        @include flex-sprite($plan-level1, archeology);
+
+        .panorama {
+            left: 108px;
+        }
+    }
+
+    div.south-underchurch-building {
+        left: 668px;
+        top: 660px;
+
+        @include flex-sprite($plan-level1, south_underchurch_building);
+
+        .panorama {
+            left: 246px;
+        }
+    }
+
+    div.south-underchurch-prestoli {
+        left: 702px;
+        top: 502px;
+
+        @include flex-sprite($plan-level1, south_underchurch_prestoli);
+
+        .panorama {
+            left: 152px;
+        }
+    }
+
+    div.center-underchurch {
+        left: 722px;
+        top: 771px;
+
+        @include flex-sprite($plan-level1, center_underchurch);
+
+        .panorama {
+            left: 197px;
+        }
+    }
+
+    div.papert {
+        left: 537px;
+        top: 990px;
+
+        @include flex-sprite($plan-level1, papert);
+
+        .panorama {
+            left: 106px;
+        }
+    }
+
+    div.belfry {
+        left: 192px;
+        top: 452px;
+
+        @include flex-sprite($plan-level1, belfry);
+
+        .panorama {
+            left: 209px;
+            top: 0px;
+        }
+    }
+
+    div.ladder {
+        left: 684px;
+        top: 921px;
+
+        @include flex-sprite($plan-level1, ladder);
+
+        .panorama {
+            left: 57px;
+        }
+    }
+
+    ul {
+        width: 600px;
+
+        li {
+            padding-bottom: 18px;
+        }
+
+        &.church-list-1 {
+            left: 104px;
+            top: 1506px;
+        }
+
+        &.church-list-2 {
+            left: 778px;
+            top: 1545px;
+        }
+    }
+}
+
+#level2 {
+    .church-plan {
+        left: 355px;
+        top: 330px;
+
+        @include flex-sprite($plan-level2, plan_level2);
+    }
+
+    div.pokrova {
+        left: 590px;
+        top: 721px;
+
+        @include flex-sprite($plan-level2, pokrova);
+
+        .info {
+            left: 80px;
+            top: 0px;
+        }
+
+        .panorama {
+            left: 290px;
+            top: 0px;
+        }
+    }
+
+    div.kipriana {
+        left: 666px;
+        top: 1085px;
+
+        @include flex-sprite($plan-level2, kipriana);
+
+        .info {
+            left: 0px;
+        }
+
+        .panorama {
+            left: 120px;
+        }
+    }
+
+    div.jerusalem {
+        left: 1003px;
+        top: 788px;
+
+        @include flex-sprite($plan-level2, jerusalem);
+
+        .info {
+            left: 0px;
+        }
+
+        .panorama {
+            left: 130px;
+        }
+    }
+
+    div.troitsa {
+        left: 376px;
+        top: 786px;
+
+        @include flex-sprite($plan-level2, troitsa);
+
+        .info {
+            left: 0px;
+        }
+
+        .panorama {
+            left: 120px;
+        }
+    }
+
+    div.patriarhi {
+        left: 517px;
+        top: 973px;
+
+        @include flex-sprite($plan-level2, patriarhi);
+
+        .info {
+            left: -29px;
+        }
+
+        .panorama {
+            left: 103px;
+        }
+    }
+
+    div.nikola {
+        left: 661px;
+        top: 495px;
+
+        @include flex-sprite($plan-level2, nikola);
+
+        .info {
+            left: -10px;
+        }
+
+        .panorama {
+            left: 150px;
+        }
+    }
+
+    div.grigory {
+        left: 872px;
+        top: 962px;
+
+        @include flex-sprite($plan-level2, grigory);
+
+        .info {
+            left: 13px;
+            top: 16px;
+        }
+
+        .panorama {
+            left: 135px;
+        }
+    }
+
+    div.svirski {
+        left: 517px;
+        top: 637px;
+
+        @include flex-sprite($plan-level2, svirski);
+
+        .info {
+            left: -29px;
+        }
+
+        .panorama {
+            left: 96px;
+        }
+    }
+
+    div.varlaam {
+        left: 863px;
+        top: 624px;
+
+        @include flex-sprite($plan-level2, varlaam);
+
+        .info {
+            left: -23px;
+        }
+
+        .panorama {
+            left: 140px;
+        }
+    }
+
+    div.inner-gallery {
+        left: 479px;
+        top: 603px;
+
+        @include flex-sprite($plan-level2, inner_gallery);
+
+        .panorama {
+            left: 286px;
+            top: 69px;
+        }
+    }
+
+    div.outer-gallery {
+        left: 355px;
+        top: 475px;
+
+        @include flex-sprite($plan-level2, outer_gallery);
+
+        .panorama {
+            left: 756px;
+            top: 10px;
+        }
+    }
+
+    div.external {
+        left: 590px;
+        top: 721px;
+
+        @include flex-sprite($plan-level2, external);
+
+        .panorama {
+            left: 103px;
+        }
+    }
+
+    div.north {
+        left: 676px;
+        top: 1216px;
+
+        @include flex-sprite($plan-level2, north);
+
+        .panorama {
+            left: 103px;
+        }
+    }
+
+    div.west {
+        left: 1139px;
+        top: 783px;
+
+        @include flex-sprite($plan-level2, west);
+
+        .panorama {
+            left: 29px;
+        }
+    }
+
+    div.exit {
+        left: 1014px;
+        top: 1315px;
+
+        @include flex-sprite($plan-level2, exit);
+
+        .panorama {
+            left: 103px;
+        }
+    }
+
+    ul {
+
+        li {
+            padding-bottom: 36px;
+        }
+
+        &.church-list-1 {
+            left: 104px;
+            top: 1346px;
+
+            width: 672px;
+        }
+
+        &.church-list-2 {
+            left: 778px;
+            top: 1522px;
+
+            width: 560px;
+        }
+    }
+}
+
+div.list {
+    @include opacity(0);
+    // display: none;
+    //visibility: hidden;
+
+    &.active {
+        @include opacity(1);
+        @include transition-property(opacity);
+        @include transition-duration(400ms);
+        @include transition-timing-function(ease-in-out);
+
+        z-index: 100000;
+
+        &.outer-gallery,
+        &.inner-gallery {
+            z-index: 0;
+        }
+    }
+
+    .info {
+        top: -29px;
+
+        @include flex-sprite($buttons, button_info);
+    }
+
+    .panorama {
+        top: -29px;
+
+        @include flex-sprite($buttons, button_360_black);
+    }
+}
+
+ul {
+    li {
+        font-family: "PT Sans Pro Narrow Demi Regular";
+        font-size: 35px;
+        letter-spacing: 1px;
+
+        color: $color-dark-gray;
+
+
+
+        &.active {
+            color: $color-violet;
+
+            &.bonus {
+                color: $color-light-blue-text;
+            }
+        }
+    }
+}

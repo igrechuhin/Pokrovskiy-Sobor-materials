@@ -1,0 +1,149 @@
+@import "base";
+
+.button {
+    &.plan {
+        @include flex-sprite($buttons, button_plan, true);
+    }
+    &.contents {
+        @include flex-sprite($buttons, button_contents, true);
+    }
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+}
+
+.navigation {
+    div {
+        background: $color-light-gray;
+    }
+}
+
+@for $i from 1 through 10 {
+    .navigation {
+        #level#{$i} {
+            left: 470px + ($i - 1)*65px;
+        }
+    }
+}
+
+.images {
+    left: 104px;
+    top: 240px;
+
+    height: 654px;
+    width: 654px;
+}
+
+.question {
+    left: 850px;
+
+    width: 580px;
+
+    font-family: "PT Sans Pro Condensed Demi Regular";
+    font-size: 45px;
+    letter-spacing: 1px;
+    line-height: 120%;
+}
+
+.text {
+    left: 104px;
+    top: 1031px;
+
+    width: 1328px;
+    height: 938px;
+
+    font-family: 'PT Serif Regular';
+
+    font-size: 32px;
+    line-height: 46px;
+}
+
+#level1 {
+    .images {
+        @include background-image(image-url("legends/1.png"));
+    }
+    .question {
+        top: 542px;
+    }
+}
+
+#level2 {
+    .images {
+        @include background-image(image-url("legends/2.png"));
+    }
+    .question {
+        top: 461px;
+    }
+}
+
+#level3 {
+    .images {
+        @include background-image(image-url("legends/3.png"));
+    }
+    .question {
+        top: 488px;
+    }
+}
+
+#level4 {
+    .images {
+        @include background-image(image-url("legends/4.png"));
+    }
+    .question {
+        top: 488px;
+    }
+}
+
+#level5 {
+    .images {
+        @include background-image(image-url("legends/5.png"));
+    }
+    .question {
+        top: 542px;
+    }
+}
+
+#level6 {
+    .images {
+        @include background-image(image-url("legends/6.png"));
+    }
+    .question {
+        top: 488px;
+    }
+}
+
+#level7 {
+    .images {
+        @include background-image(image-url("legends/7.png"));
+    }
+    .question {
+        top: 515px;
+    }
+}
+
+#level8 {
+    .images {
+        @include background-image(image-url("legends/8.png"));
+    }
+    .question {
+        top: 542px;
+    }
+}
+
+#level9 {
+    .images {
+        @include background-image(image-url("legends/9.png"));
+    }
+    .question {
+        top: 542px;
+    }
+}
+
+#level10 {
+    .images {
+        @include background-image(image-url("legends/10.png"));
+    }
+    .question {
+        top: 542px;
+    }
+}

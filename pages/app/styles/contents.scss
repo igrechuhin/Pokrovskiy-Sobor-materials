@@ -1,0 +1,86 @@
+@import "base";
+
+$contents: sprite-map("contents/*.png", $layout: smart);
+
+.button {
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+
+    &.hint {
+        top: 1835px;
+        @include flex-sprite($buttons, button_info_grey, true);
+    }
+}
+
+.background {
+    top: 169px;
+
+    @include flex-sprite($contents, background);
+}
+
+.photo {
+    left: 384px;
+    top: 398px;
+
+    @include flex-sprite($contents, photo, true);
+}
+
+.panorama {
+    left: 909px;
+    top: 398px;
+
+    @include flex-sprite($contents, panorama, true);
+}
+
+.info {
+    left: 605px;
+    top: 620px;
+
+    @include flex-sprite($contents, info, true);
+}
+
+.temples {
+    left: 343px;
+    top: 883px;
+
+    @include flex-sprite($contents, temples, true);
+}
+
+.history {
+    left: 868px;
+    top: 883px;
+
+    @include flex-sprite($contents, history, true);
+}
+
+.about {
+    left: 122px;
+    top: 1187px;
+
+    @include flex-sprite($contents, about, true);
+}
+
+.bonus {
+    left: 605px;
+    top: 1147px;
+
+    @include flex-sprite($contents, bonus, true);
+}
+
+.legends {
+    left: 682px;
+    top: 1747px;
+
+    @include flex-sprite($contents, legends, true);
+}
+
+.hint-screen {
+    display: none;
+    left: 0px;
+    top: 0px;
+
+    width: 1536px;
+    height: 2048px;
+    @include background-image(image-url("infoscreen.jpg"));
+}

@@ -1,0 +1,121 @@
+@import "base";
+
+$info: sprite-map("info/*.png", $layout: smart);
+
+.button {
+    &.plan {
+        @include flex-sprite($buttons, button_plan, true);
+    }
+    &.contents {
+        @include flex-sprite($buttons, button_contents, true);
+    }
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+}
+
+.navigation {
+    div {
+        background: $color-light-gray;
+    }
+}
+
+@for $i from 1 through 3 {
+    .navigation {
+        #level#{$i} {
+            left: 688px + ($i - 1)*65px;
+        }
+    }
+}
+
+.logo {
+    left: 104px;
+    top: 240px;
+}
+
+.text {
+    left: 104px;
+    top: 711px;
+
+    width: 1328px;
+    height: 938px;
+
+    font-family: 'PT Serif Regular';
+
+    font-size: 32px;
+    line-height: 46px;
+    letter-spacing: 2px;
+}
+
+.social {
+    top: 1700px;
+
+    width: 96px;
+    height: 96px;
+
+    &#facebook {
+        left: 104px;
+        @include background-image(image-url("about/fb.png"));
+    }
+    &#vkontakte {
+        left: 217px;
+        @include background-image(image-url("about/vk.png"));
+    }
+    &#livejournal {
+        left: 330px;
+        @include background-image(image-url("about/lj.png"));
+    }
+    &#instagram {
+        left: 443px;
+        @include background-image(image-url("about/ig.png"));
+    }
+}
+
+#level1 {
+    .logo {
+        width: 327px;
+        height: 385px;
+        @include background-image(image-url("about/mg.png"));
+    }
+}
+
+#level2 {
+    .logo {
+        width: 327px;
+        height: 257px;
+        @include background-image(image-url("about/fp.png"));
+    }
+}
+
+#level3 {
+    .text-description {
+        top: 236px;
+
+        width: 650px;
+
+        .header {
+            font-family: 'PT Sans Pro Extra Bold Regular';
+            font-size: 27px;
+            line-height: 36px;
+        }
+        .text {
+            font-family: 'PT Serif Caption Regular';
+            font-size: 27px;
+            letter-spacing: initial;
+            line-height: 36px;
+
+            &.link {
+                line-height: 42px;
+            }
+        }
+
+        &.text-column1 {
+            left: 104px;
+        }
+
+        &.text-column2 {
+            left: 777px;
+        }
+    }
+}
+

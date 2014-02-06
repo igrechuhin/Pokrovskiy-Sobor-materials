@@ -1,0 +1,234 @@
+@import "base";
+
+.button {
+    &.plan {
+        @include flex-sprite($buttons, button_plan, true);
+    }
+    &.contents {
+        @include flex-sprite($buttons, button_contents, true);
+    }
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+}
+
+.timeline-wrapper {
+    left: 0px;
+    top: 1648px;
+
+    width: 1536px;
+    height: 400px;
+
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    &::scrollbar {
+        display: none;
+    }
+
+    .line {
+        left: 0px;
+        top: 136px;
+
+        width: 5466px;
+        height: 4px;
+
+        background-color: $color-dark-gray;
+    }
+}
+
+.timeline {
+    width: 100%;
+    height: 100%;
+}
+
+$points-step: 262px;
+
+.point {
+    top: 124px;
+
+    font-family: 'PT Sans Pro Condensed Demi Regular';
+
+    @for $i from 1 through 2 {
+        &#p#{$i} {
+            left: 754px + ($i - 1) * $points-step;
+        }
+    }
+    &#p3 {
+        left: 1540px;
+    }
+    @for $i from 4 through 5 {
+        &#p#{$i} {
+            left: 1802px + ($i - 4) * $points-step;
+        }
+    }
+    &#p6 {
+        left: 2588px;
+    }
+    @for $i from 7 through 14 {
+        &#p#{$i} {
+            left: 2850px + ($i - 7) * $points-step;
+        }
+    }
+}
+
+.circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    background-color: $color-dark-gray;
+
+    &.left {
+        left: -$points-step;
+    }
+}
+
+.year {
+    left: -44px;
+    top: 56px;
+
+    color: $color-dark-gray;
+
+    font-size: 72px;
+
+    &.left {
+        left: -$points-step - 44px;
+    }
+}
+
+$duration: 200ms;
+.separator {
+    opacity: 0;
+
+    @include single-transition(opacity, $duration);
+}
+
+.active {
+    .separator {
+        opacity: 1;
+    }
+}
+
+#content {
+    left: 0px;
+    top: 240px;
+
+    opacity: 0;
+
+    @include single-transition(opacity, $duration);
+
+    .image {
+        left: 104px;
+        top: 155px;
+        width: 750px;
+        height: 1085px;
+    }
+
+    .text {
+        left: 988px;
+        top: 155px;
+
+        width: 447px;
+        height: 465px;
+
+        font-family: 'PT Serif Caption Regular';
+        font-size: 32px;
+        line-height: 44px;
+    }
+
+    .plan {
+        left: 934px;
+        top: 700px;
+
+        width: 500px;
+        height: 533px;
+        @include background-image(image-url("plans/history/p4.png"));
+    }
+
+    &.delay {
+        @include single-transition(opacity, $duration, 200ms);
+    }
+
+    &.p1 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/1.jpg"));
+        }
+        .plan {
+            @include background-image(image-url("plans/history/p1.png"));
+        }
+    }
+    &.p2 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/2.jpg"));
+        }
+        .plan {
+            @include background-image(image-url("plans/history/p2.png"));
+        }
+    }
+    &.p3 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/3.jpg"));
+        }
+        .plan {
+            @include background-image(image-url("plans/history/p3.png"));
+        }
+    }
+    &.p4 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/4.jpg"));
+        }
+    }
+    &.p5 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/5.jpg"));
+        }
+    }
+    &.p6 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/6.jpg"));
+        }
+    }
+    &.p7 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/7.jpg"));
+        }
+    }
+    &.p8 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/8.jpg"));
+        }
+    }
+    &.p9,&.p10,&.p11 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/9.jpg"));
+        }
+    }
+    &.p12 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/12.jpg"));
+            height: 773px;
+        }
+    }
+    &.p13 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/13.jpg"));
+        }
+    }
+    &.p14 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/14.jpg"));
+        }
+    }
+}

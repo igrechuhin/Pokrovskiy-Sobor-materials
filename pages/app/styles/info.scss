@@ -1,0 +1,347 @@
+@import "base";
+
+$info: sprite-map("info/*.png", $layout: smart);
+
+.button {
+    &.plan {
+        @include flex-sprite($buttons, button_plan, true);
+    }
+    &.contents {
+        @include flex-sprite($buttons, button_contents, true);
+    }
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+}
+
+.navigation {
+    div {
+        background: $color-light-gray;
+    }
+}
+
+@for $i from 1 through 3 {
+    .navigation {
+        #level#{$i} {
+            left: 688px + ($i - 1)*65px;
+        }
+    }
+}
+
+#level1 {
+    .page-content-purple {
+        left: 0px;
+        top: 240px;
+
+        width: 1536px;
+        height: 1808px;
+
+        background-color: $color-violet;
+
+        .header {
+            font-family: 'PT Sans Pro Narrow Extra Bold Regular';
+            font-size: 60px;
+            letter-spacing: 10px;
+
+            color: white;
+
+            &#first {
+                left: 105px;
+                top: 100px;
+            }
+            &#second {
+                left: 105px;
+                top: 796px;
+            }
+        }
+
+        .time {
+            left: 83px;
+            top: 259px;
+            display: none;
+
+            &#selector1 {
+                @include flex-sprite($info, time_november);
+            }
+
+            &#selector2 {
+                @include flex-sprite($info, time_may);
+            }
+
+            &#selector3 {
+                @include flex-sprite($info, time_june);
+            }
+        }
+
+        .period {
+            top: 551px;
+
+            font-family: 'PT Sans Pro Narrow Light Regular';
+            color: $color-gray;
+            font-size: 53px;
+            letter-spacing: 2px;
+
+            &#selector1 {
+                left: 105px;
+
+                &.active {
+                    color: $color-light-blue;
+                }
+            }
+
+            &#selector2 {
+                left: 524px;
+
+                &.active {
+                    color: $color-light-green;
+                }
+            }
+
+            &#selector3 {
+                left: 1145px;
+
+                &.active {
+                    color: $color-yellow;
+                }
+            }
+        }
+
+        .hint {
+            left: 105px;
+            top: 643px;
+
+            font-family: "PT Sans Regular";
+            font-size: 22px;
+            letter-spacing: 1px;
+
+            color: $color-gray;
+        }
+
+        .price {
+            font-family: 'PT Sans Pro Narrow Light Regular';
+            color: $color-gray;
+            font-size: 34px;
+            letter-spacing: 2px;
+        }
+
+        .category {
+            top: 938px;
+
+            &#adult {
+                left: 105px;
+            }
+
+            &#children {
+                left: 392px;
+            }
+
+            &#pensioner {
+                left: 780px;
+            }
+
+            &#special {
+                left: 1117px;
+            }
+
+            &.active {
+                &.yellow {
+                    color: $color-yellow;
+                }
+
+                &.green {
+                    color: $color-green;
+                }
+
+                &.light-blue {
+                    color: $color-light-blue;
+                }
+            }
+        }
+
+        .group {
+            left: 105px;
+
+            &#individual {
+                top: 1122px;
+
+                &.active {
+                    color: $color-light-blue;
+                }
+            }
+
+            &#medium {
+                top: 1270px;
+
+                &.active {
+                    color: $color-green;
+                }
+            }
+
+            &#small {
+                top: 1445px;
+
+                &.active {
+                    color: $color-yellow;
+                }
+            }
+        }
+
+        .action {
+            top: 1641px;
+
+            &#nonpro-photo {
+                left: 105px;
+
+                &.active {
+                    color: $color-light-blue;
+                }
+            }
+
+            &#nonpro-video {
+                left: 624px;
+
+                &.active {
+                    color: $color-green;
+                }
+            }
+
+            &#audio {
+                left: 1147px;
+
+                &.active {
+                    color: $color-yellow;
+                }
+            }
+        }
+
+        .price-place {
+            left: 475px;
+            top: 1118px;
+
+            @include flex-sprite($info, price_place);
+
+            .price-card {
+                left: 3px;
+                top: 3px;
+
+                width: 777px;
+                height: 391px;
+
+                border-radius: 2%/4%;
+
+                &.yellow {
+                    background-color: $color-yellow;
+                    color: $color-violet;
+                }
+
+                &.green {
+                    background-color: $color-green;
+                    color: white;
+                }
+
+                &.light-blue {
+                    background-color: $color-light-blue;
+                    color: white;
+                }
+
+                .price-value {
+                    right: 80px;
+
+                    text-align: right;
+
+                    font-size: 385px;
+                    font-family: 'PT Sans Pro Condensed Light';
+
+                    font-size: 385px;
+                }
+            }
+        }
+
+        .separator {
+            left: 105px;
+
+            width: 1333px;
+
+            border-bottom: 5px dotted white;
+
+            &#first {
+                top: 1054px;
+            }
+
+            &#second {
+                top: 1580px;
+            }
+        }
+    }
+}
+
+#level2 {
+    .text-description {
+        top: 253px;
+
+        width: 650px;
+
+        font-size: 25px;
+        line-height: 46px;
+        letter-spacing: 1px;
+
+        .name {
+            font-family: 'PT Serif Caption Italic';
+        }
+        .header {
+            font-family: 'PT Sans Pro Extra Bold Regular';
+        }
+        .text {
+            font-family: 'PT Serif Caption Regular';
+        }
+
+        a {
+            color: black;
+            text-decoration:none;
+        }
+
+        &.text-column1 {
+            left: 104px;
+        }
+
+        &.text-column2 {
+            left: 777px;
+        }
+    }
+}
+
+#level3 {
+    .header {
+        left: 119px;
+
+        font-family: 'PT Sans Pro Condensed Demi Regular';
+        font-size: 40px;
+        letter-spacing: 1px;
+
+        &#first {
+            top: 252px;
+        }
+
+        &#second {
+            top: 1258px;
+        }
+    }
+
+    .text {
+        left: 104px;
+
+        width: 1329px;
+
+        font-family: 'PT Serif Caption Regular';
+        font-size: 32px;
+        line-height: 46px;
+
+        &#first {
+            top: 345px;
+        }
+
+        &#second {
+            top: 1353px;
+        }
+    }
+}

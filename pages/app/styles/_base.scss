@@ -1,0 +1,196 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography/lists";
+
+@import "fonts";
+@import "sprites";
+
+$buttons: sprite-map("buttons/*.png", $layout: smart);
+
+$color-dark-gray: rgb(128, 129, 131);
+$color-light-gray: rgb(237, 237, 238);
+$color-gray: rgb(214, 215, 215);
+$color-violet: rgb(108, 97, 167);
+$color-light-blue: rgb(99, 198, 239);
+$color-light-blue-text: rgb(109, 173, 211);
+$color-blue: rgb(60, 103, 174);
+$color-cyan: rgb(95, 170, 187);
+$color-light-green: rgb(142, 187, 96);
+$color-green: rgb(157, 198, 109);
+$color-yellow: rgb(255, 233, 93);
+$color-transparent: rgba(0, 0, 0, 0);
+
+$screen-width: 1536px;
+$screen-height: 2048px;
+
+div, ul {
+    position: absolute;
+    @include user-select(none);
+    cursor: default
+}
+
+.page {
+    left: 0px;
+    top: 0px;
+
+    width: $screen-width;
+    height: $screen-height;
+}
+
+@for $i from 1 through 12 {
+    .page#level#{$i} {
+        left: ($i - 1) * $screen-width;
+        //top: ($i - 1) *  * $screen-height;
+    }
+}
+
+.page-header {
+    left: 104px;
+    top: 57px;
+
+    position: fixed;
+
+    font-family: "PT Sans Pro Condensed Demi Regular";
+    font-size: 45px;
+    letter-spacing: 1px;
+    line-height: 120%;
+}
+
+.color-gray {
+    color: $color-dark-gray;
+}
+
+.underline {
+    border-bottom: 1px solid;
+}
+
+.red-line {
+    padding-left: 40px;
+}
+
+.button {
+    top: 52px;
+
+    position: fixed;
+
+    &.audio,&.text {
+        left: 859px;
+    }
+    &.model,&.infographics,&.panorama {
+        left: 988px;
+    }
+    &.plan {
+        left: 1117px;
+    }
+    &.contents {
+        left: 1245px;
+    }
+    &.back {
+        left: 1374px;
+    }
+
+    &.hint {
+        left: 1374px;
+    }
+}
+
+.page-hint {
+    left: 104px;
+    top: 272px;
+
+    font-family: "PT Sans Regular";
+    font-size: 24px;
+    letter-spacing: 1px;
+
+    &.right {
+        left: 854px;
+    }
+}
+
+.page-content-gray {
+    left: 0px;
+    top: 240px;
+
+    width: 1536px;
+    height: 1808px;
+    z-index: -1;
+
+    background-color: $color-light-gray;
+}
+
+.hint-box {
+    left: 778px;
+    top: 264px;
+
+    width: 45px;
+    height: 45px;
+    background: $color-light-blue;
+}
+
+.ui-slider {
+    background: white;
+
+    @include border-left-radius(15px);
+    @include border-right-radius(15px);
+
+    border: solid;
+    border-width: 1px;
+    border-color: $color-dark-gray;
+
+    background: $color-light-gray;
+
+    .ui-slider-range {
+        top: 0px;
+
+        height: 100%;
+
+        @include border-left-radius(13px);
+
+        background: $color-violet;
+    }
+
+    .ui-slider-handle {
+        position: absolute;
+        outline-style: none;
+
+        margin-left: -22px;
+        margin-top: -5px;
+
+        @include flex-sprite($buttons, slider_handle, true);
+    }
+
+    .value {
+        top: 46px;
+
+        font-family: "PT Sans Regular";
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .min {
+        left: 0px;
+    }
+    .max {
+        right: 0px;
+    }
+    .current {
+        margin-left: -15px;
+    }
+}
+
+.navigation {
+    top: 1983px;
+    position: fixed;
+
+    div {
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+
+        background: white;
+
+        &.active {
+            background: $color-light-blue;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+@import "base";
+
+.button {
+    &.audio {
+        @include flex-sprite($buttons, button_audio, true);
+        &.active {
+            @include flex-sprite($buttons, button_audio_active);
+        }
+    }
+    &.model {
+        @include flex-sprite($buttons, button_3d_active);
+    }
+    &.plan {
+        @include flex-sprite($buttons, button_plan, true);
+    }
+    &.contents {
+        @include flex-sprite($buttons, button_contents, true);
+    }
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+}
+
+.model3d{
+    left: 0px;
+    top: 240px;
+
+    width: 1536px;
+    height: 1808px;
+
+    z-index: -1;
+}
+
+.player {
+    display: none;
+
+    left: 0px;
+    top: 1860px;
+
+    width: 1536px;
+    height: 188px;
+
+    .player-content-gray {
+        left: 0px;
+        top: 0px;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: -1;
+
+        background-color: $color-light-gray;
+        opacity: 0.6;
+    }
+
+    .play-pause {
+        left: 70px;
+        top: 77px;
+
+        @include flex-sprite($buttons, button_play);
+        &.active {
+            @include flex-sprite($buttons, button_pause);
+        }
+    }
+
+    .slider {
+        left: 150px;
+        top: 77px;
+
+        width: 1290px;
+        height: 36px;
+    }
+}

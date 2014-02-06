@@ -1,0 +1,90 @@
+@import "base";
+
+.button {
+    &.plan {
+        @include flex-sprite($buttons, button_plan, true);
+    }
+    &.contents {
+        @include flex-sprite($buttons, button_contents, true);
+    }
+    &.back {
+        @include flex-sprite($buttons, button_back, true);
+    }
+}
+
+.text {
+    left: 104px;
+    top: 253px;
+
+    width: 1328px;
+    height: 938px;
+
+    font-family: 'PT Serif Regular';
+
+    font-size: 32px;
+    line-height: 46px;
+}
+
+.panorama {
+    height: 524px;
+    width: 524px;
+
+    &.belfry {
+        left: 169px;
+        top: 550px;
+
+        @include background-image(image-url("bonus/belfry.png"));
+
+        .signature {
+            left: 183px;
+            top: 561px;
+        }
+    }
+
+    &.external {
+        left: 841px;
+        top: 550px;
+
+        @include background-image(image-url("bonus/external.png"));
+
+        .signature {
+            left: 67px;
+            top: 541px;
+        }
+    }
+
+    &.north {
+        left: 169px;
+        top: 1324px;
+
+        @include background-image(image-url("bonus/north.png"));
+
+        .signature {
+            left: 12px;
+            top: 561px;
+        }
+    }
+
+    &.west {
+        left: 841px;
+        top: 1324px;
+
+        @include background-image(image-url("bonus/west.png"));
+
+        .signature {
+            left: 4px;
+            top: 561px;
+        }
+    }
+
+    .signature {
+        position: absolute;
+        text-align: center;
+
+        font-family: 'PT Sans Pro Narrow Demi Regular';
+
+        font-size: 35px;
+        letter-spacing: 1px;
+        line-height: 40px;
+    }
+}
