@@ -33,6 +33,7 @@ $(function() {
             size: 140
         },
         points = [],
+        lastActivePoint,
         scrollTimer,
         skipEnd = false;
 
@@ -48,7 +49,6 @@ $(function() {
 
     function scroll (event) {
         clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(scrollEnd, 300);
 
         var scrollPos = event.target.scrollLeft;
 
@@ -84,8 +84,8 @@ $(function() {
                 $leftYear.css({
                     left: -pointsStep - ((1 - scale) * yearShift) + leftYear + 'px',
                     top: topYear + 'px',
-                    'font-size': sizeYear + 'px',
-                    display: (yearOffset < 0 || yearOffset > screenWidth) ? 'none' : 'block'
+                    'font-size': sizeYear + 'px'//,
+                    //display: (yearOffset < 0 || yearOffset > screenWidth) ? 'none' : 'block'
                 });
             }
             $right.css({
@@ -98,10 +98,12 @@ $(function() {
             $rightYear.css({
                 left: leftYear + 'px',
                 top: topYear + 'px',
-                'font-size': sizeYear + 'px',
-                display: (yearOffset < 0 || yearOffset > screenWidth) ? 'none' : 'block'
+                'font-size': sizeYear + 'px'//,
+                //display: (yearOffset < 0 || yearOffset > screenWidth) ? 'none' : 'block'
             });
         });
+
+        scrollTimer = setTimeout(scrollEnd, 300);
     }
 
     function scrollEnd () {
@@ -115,29 +117,37 @@ $(function() {
         points.forEach(function (point) {
             var distance = (scrollPos < point.left) ? point.left - scrollPos :
                            (scrollPos > point.right) ? scrollPos - point.right : 0;
+            if (lastActivePoint === point) {
+                distance *= 3;
+            }
+
             if (minDistance > distance) {
                 minDistance = distance;
                 selectedPoint = point;
             }
         });
+        lastActivePoint = selectedPoint;
 
         $element = $(selectedPoint.element);
 
-        $content.removeClass();
+        if ($content.hasClass($element.attr('id')) === false) {
+            $content.removeClass();
+            setTimeout(function () {
+                $contentText.html($element.data('text'));
+                $content.addClass($element.attr('id'));
+            }, 200);
+        }
 
         $wrapper.animate({
             scrollLeft: selectedPoint.right
-        }, 200, function () {
+        }, 200);
+        setTimeout(function () {
             $element.addClass('active');
-            $contentText.html($element.data('text'));
-            $content.addClass('delay').addClass($element.attr('id'));
-            setTimeout(function () {
-                skipEnd = false;
-            }, 400);
-        });
+            skipEnd = false;
+        }, 400);
     }
 
-    $wrapper.on('touchmove scroll', scroll).scrollLeft(5);
+    $wrapper.on('scroll', scroll).scrollLeft(5);
 
     $points.on('click', function () {
         var id = event.currentTarget.id,

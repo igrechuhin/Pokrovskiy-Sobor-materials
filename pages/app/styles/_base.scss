@@ -37,7 +37,7 @@ div, ul {
     height: $screen-height;
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through 16 {
     .page#level#{$i} {
         left: ($i - 1) * $screen-width;
         //top: ($i - 1) *  * $screen-height;

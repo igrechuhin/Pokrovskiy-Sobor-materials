@@ -29,7 +29,7 @@
         left: 0px;
         top: 136px;
 
-        width: 5466px;
+        width: 6252px;
         height: 4px;
 
         background-color: $color-dark-gray;
@@ -64,9 +64,17 @@ $points-step: 262px;
     &#p6 {
         left: 2588px;
     }
-    @for $i from 7 through 14 {
+    @for $i from 7 through 11 {
         &#p#{$i} {
             left: 2850px + ($i - 7) * $points-step;
+        }
+    }
+    &#p12 {
+        left: 4422px;
+    }
+    @for $i from 13 through 16 {
+        &#p#{$i} {
+            left: 4684px + ($i - 13) * $points-step;
         }
     }
 }
@@ -216,19 +224,33 @@ $duration: 200ms;
         opacity: 1;
         .image {
             @include background-image(image-url("history/12.jpg"));
-            height: 773px;
+            height: 1012px;
         }
     }
     &.p13 {
         opacity: 1;
         .image {
             @include background-image(image-url("history/13.jpg"));
+            height: 716px;
         }
     }
     &.p14 {
         opacity: 1;
         .image {
             @include background-image(image-url("history/14.jpg"));
+            height: 773px;
+        }
+    }
+    &.p15 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/15.jpg"));
+        }
+    }
+    &.p16 {
+        opacity: 1;
+        .image {
+            @include background-image(image-url("history/16.jpg"));
         }
     }
 }
